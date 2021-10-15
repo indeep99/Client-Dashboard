@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
     this.authService
       .login(this.loginForm.value)
-      .pipe(map((token) => this.router.navigate(['users'])))
+      .pipe(map((token) => this.router.navigate(['admin'])))
       .subscribe();
   }
 
