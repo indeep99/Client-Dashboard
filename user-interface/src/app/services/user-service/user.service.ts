@@ -59,4 +59,8 @@ export class UserService {
     )
   }
 
+  updateOne(user: any): Observable<User> {
+    return this.http.put('api/users/' + user.id, user);
+  }
+
 }
