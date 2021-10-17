@@ -9,7 +9,7 @@
 <div *ngIf="dataSource">
     <mat-table [dataSource] = "dataSource.items">
         <mat-header-row *matHeaderRowDef="columnsToDisplay"> </mat-header-row>
-        <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay" (click)="switchToClient(row.id)"></mat-row>
 
         <ng-container matColumnDef="id">
             <mat-header-cell  *matHeaderCellDef>Id</mat-header-cell>
