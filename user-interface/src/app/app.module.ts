@@ -17,7 +17,9 @@ import { UsersComponent } from './components/users/users.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
-import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
+import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component'
+import { JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { MatCardModule } from '@angular/material/card'
     LoginComponent,
     RegisterComponent,
     UsersComponent,
-    ClientProfileComponent
+    ClientProfileComponent,
+    UpdateUserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { MatCardModule } from '@angular/material/card'
     MatPaginatorModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [JwtHelperService, {provide: JWT_OPTIONS, useValue: JWT_OPTIONS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
