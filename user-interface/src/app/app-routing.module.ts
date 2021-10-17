@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UsersComponent } from './components/users/users.component';
@@ -19,8 +20,18 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: UsersComponent
-  }
+    children: [
+      {
+        path: '',
+        component: UsersComponent
+      },
+      {
+        path: ':id',
+        component: ClientProfileComponent
+      }
+    ]    
+  },
+
 ];
 
 @NgModule({
