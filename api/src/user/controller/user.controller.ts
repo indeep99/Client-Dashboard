@@ -39,6 +39,7 @@ export class UserController {
     );
   }
 
+  
   @Get(':id')
   findOne(@Param() params): Observable<User> {
     return this.userService.findOne(params.id);
@@ -73,6 +74,8 @@ export class UserController {
     }
   }
 
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @hasRoles(UserRole.ADMIN)
   @Delete(':id')
   deleteOne(@Param('id') id: string): Observable<User> {
     return this.userService.deleteOne(Number(id));

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { from, map, Observable } from 'rxjs';
+import { from, map, Observable, switchMap } from 'rxjs';
 import { User } from 'src/user/models/user.interface';
 import { UserService } from 'src/user/service/user.service';
 import { Repository } from 'typeorm';
@@ -34,6 +34,16 @@ export class ProjectService {
     }
 
     findOne(id: number): Observable<ProjectEntry> {
-        return from(this.projectRepository.findOne({id}, {relations: ['author']}));
+        return from(this.projectRepository.findOne({id}, {relations: ['client']}));
+    }
+
+    updateOne(id: number, projectEntry: ProjectEntry): Observable<ProjectEntry> {
+        return from(this.projectRepository.update(id, projectEntry)).pipe(
+            switchMap(() => this.findOne(id))
+        )
+    }
+
+    deleteOne(id: number): Observable<any> {
+        return from(this.projectRepository.delete(id));
     }
 }   
