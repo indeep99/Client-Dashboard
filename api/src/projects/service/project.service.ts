@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { IPaginationOptions, paginate, Pagination } from 'nestjs-typeorm-paginate';
 import { from, map, Observable, switchMap } from 'rxjs';
 import { User } from 'src/user/models/user.interface';
 import { UserService } from 'src/user/service/user.service';
@@ -45,5 +46,24 @@ export class ProjectService {
 
     deleteOne(id: number): Observable<any> {
         return from(this.projectRepository.delete(id));
+    }
+
+    paginateAll(options: IPaginationOptions) : Observable<Pagination<ProjectEntry>> {
+        return from(paginate<ProjectEntry>(this.projectRepository, options, {
+            relations: ['client']
+        })).pipe(
+            map((projectEntries: Pagination<ProjectEntry>) => projectEntries)
+        )
+    }
+
+    paginateByUser (options: IPaginationOptions, userId: number) : Observable<Pagination<ProjectEntry>> {
+        return from(paginate<ProjectEntry>(this.projectRepository, options, {
+            relations: ['client'],
+            where: [
+                {client: userId}
+            ]
+        })).pipe(
+            map((projectEntries: Pagination<ProjectEntry>) => projectEntries)
+        )
     }
 }   
