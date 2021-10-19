@@ -5,6 +5,8 @@ import { ClientIsOwnerGuard } from '../guards/client-is-owner.guard';
 import { ProjectEntry } from '../model/project-entry.interface';
 import { ProjectService } from '../service/project.service';
 
+export const PROJECT_URL = 'http://localhost:3000/api/project';
+
 @Controller('project')
 export class ProjectController {
 
@@ -17,13 +19,42 @@ export class ProjectController {
         return this.projectService.create(user, projectEntry)
     }
 
+    // @Get()
+    // findProjectEntries(@Query('userId') userId: number): Observable<ProjectEntry[]> {
+    //     if(userId == null) {
+    //         return this.projectService.findAll();
+    //     } else {
+    //         return this.projectService.findByUser(userId);
+    //     }
+    // }
+    
     @Get()
-    findProjectEntries(@Query('userId') userId: number): Observable<ProjectEntry[]> {
-        if(userId == null) {
-            return this.projectService.findAll();
-        } else {
-            return this.projectService.findByUser(userId);
-        }
+    index(
+        @Query('page') page: number = 1,
+        @Query('limit') limit: number = 10,
+    ) {
+        limit = limit > 100 ? 100 : limit;
+
+        return this.projectService.paginateAll({
+            limit: Number(limit),
+            page: Number(page),
+            route: PROJECT_URL
+        });
+    }
+
+    @Get('user/:user')
+    indexByUser(
+        @Query('page') page: number = 1,
+        @Query('limit') limit: number = 10,
+        @Param('user') userId: number
+    ) {
+        limit = limit > 100 ? 100 : limit;
+
+        return this.projectService.paginateByUser({
+            limit: Number(limit),
+            page: Number(page),
+            route: PROJECT_URL
+        }, Number(userId));
     }
     
     @Get(':id')
