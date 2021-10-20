@@ -1,0 +1,18 @@
+<div style="width: 50%; margin-left: 25%;">
+    <mat-card *ngFor="let projectEntry of (dataSource | async)?.items" style="margin-top: 15px;">
+        <div>
+            <h2>{{projectEntry.pname}}</h2>
+            <p>{{projectEntry.type}}</p>
+            <small>Client: {{projectEntry.client.name}}</small>
+        </div>
+    </mat-card>
+
+    <mat-paginator
+    [length]="(dataSource | async)?.meta!.totalItems"
+    [pageSize]="(dataSource | async)?.meta!.itemsPerPage"
+    [pageSizeOptions]="[5,10,25,100]"
+    (page)="pageEvent = $event; onPaginateChange($event)"
+    >
+
+    </mat-paginator>
+</div>

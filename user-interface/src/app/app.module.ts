@@ -21,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { HomeComponent } from './components/home/home.component';
+import { AllProjectEntriesComponent } from './components/all-project-entries/all-project-entries.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     UsersComponent,
     ClientProfileComponent,
     UpdateUserProfileComponent,
+    HomeComponent,
+    AllProjectEntriesComponent,
   ],
   imports: [
     BrowserModule,

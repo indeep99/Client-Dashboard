@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { switchMap, tap } from 'rxjs/operators';
-import { AuthenticationService, User } from 'src/app/services/authentication-service/authentication.service';
+import { AuthenticationService} from 'src/app/services/authentication-service/authentication.service';
 import { UserService } from 'src/app/services/user-service/user.service';
 
 @Component({
