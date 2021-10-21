@@ -14,16 +14,16 @@ export class ProjectEntryEntity {
     @Column()
     type: string;
 
-    @Column()
+    @Column({nullable: true})
     objects: number;
 
-    @Column()
+    @Column({nullable: true})
     images: number;
 
-    @Column()
+    @Column({nullable: true})
     completion: number;
 
-    @Column()
+    @Column({nullable: true})
     billing: number;
 
     @ManyToOne(type => UserEntity, user => user.projectEntries)
