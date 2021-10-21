@@ -23,4 +23,8 @@ export class ProjectService {
     console.log('in')
     return this.http.post<ProjectEntry>('/api/project/', projectEntry);
   }
+
+  findOne(id: number): Observable<ProjectEntry> {
+    return this.http.get<ProjectEntry>('/api/project/' + id);
+  }
 }

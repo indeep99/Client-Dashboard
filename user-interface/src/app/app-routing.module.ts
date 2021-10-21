@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 import { CreateProjectEntryComponent } from './components/create-project-entry/create-project-entry.component';
+import { DisplaySingleProjectComponent } from './components/display-single-project/display-single-project.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -53,6 +54,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
+  }, 
+  {
+    path: 'project/:id',
+    component: DisplaySingleProjectComponent
   }
 ];
 

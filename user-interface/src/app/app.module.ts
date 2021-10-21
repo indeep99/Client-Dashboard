@@ -24,6 +24,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { AllProjectEntriesComponent } from './components/all-project-entries/all-project-entries.component';
 import { CreateProjectEntryComponent } from './components/create-project-entry/create-project-entry.component';
+import { DisplaySingleProjectComponent } from './components/display-single-project/display-single-project.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CreateProjectEntryComponent } from './components/create-project-entry/c
     HomeComponent,
     AllProjectEntriesComponent,
     CreateProjectEntryComponent,
+    DisplaySingleProjectComponent,
   ],
   imports: [
     BrowserModule,

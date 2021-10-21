@@ -1,5 +1,5 @@
 <div style="width: 50%; margin-left: 25%;">
-    <mat-card *ngFor="let projectEntry of (dataSource | async)?.items" style="margin-top: 15px;">
+    <mat-card *ngFor="let projectEntry of (dataSource | async)?.items" style="margin-top: 15px;" class="card" routerLink="../project/{{projectEntry.id}}">
         <div>
             <h2>{{projectEntry.pname}}</h2>
             <p>{{projectEntry.type}}</p>

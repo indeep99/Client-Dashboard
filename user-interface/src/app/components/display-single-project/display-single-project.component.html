@@ -1,0 +1,8 @@
+<p>display-single-project works!</p>
+<div *ngIf="(projectEntry$ | async) as projectEntry" class="main-div">
+    <mat-card class="card">
+        <h1>{{projectEntry.billing}}</h1>
+        <h3>Author: {{projectEntry.client.name}}</h3>
+        <a routerLink="../../users/{{projectEntry.client.id}}">Client profile</a>
+    </mat-card>
+</div>
