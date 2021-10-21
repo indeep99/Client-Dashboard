@@ -27,4 +27,13 @@ export class ProjectService {
   findOne(id: number): Observable<ProjectEntry> {
     return this.http.get<ProjectEntry>('/api/project/' + id);
   }
+
+  indexByUser(userId: number, page: number, limit: number): Observable<ProjectEntriesPageable> {
+    let params = new HttpParams();
+
+    params = params.append('page', String(page));
+    params = params.append('limit', String(limit));
+
+    return this.http.get<ProjectEntriesPageable>('/api/project/user/' + String(userId), {params});
+  }
 }
