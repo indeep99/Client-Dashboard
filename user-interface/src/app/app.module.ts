@@ -23,6 +23,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { AllProjectEntriesComponent } from './components/all-project-entries/all-project-entries.component';
+import { CreateProjectEntryComponent } from './components/create-project-entry/create-project-entry.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AllProjectEntriesComponent } from './components/all-project-entries/all
     UpdateUserProfileComponent,
     HomeComponent,
     AllProjectEntriesComponent,
+    CreateProjectEntryComponent,
   ],
   imports: [
     BrowserModule,

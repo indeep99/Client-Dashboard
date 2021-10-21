@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, pipe } from 'rxjs';
-import { ProjectEntriesPageable } from 'src/app/model/project-entry.interface';
+import { Observable } from 'rxjs';
+import { ProjectEntriesPageable, ProjectEntry } from 'src/app/model/project-entry.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +17,10 @@ export class ProjectService {
     params = params.append('size', String(limit));
 
     return this.http.get<ProjectEntriesPageable>('/api/project', {params});
+  }
+
+  post(projectEntry: ProjectEntry): Observable<ProjectEntry> {
+    console.log('in')
+    return this.http.post<ProjectEntry>('/api/project/', projectEntry);
   }
 }

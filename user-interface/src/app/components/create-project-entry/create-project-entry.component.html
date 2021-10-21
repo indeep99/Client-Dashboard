@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+    <div>
+        <mat-card class="container">
+            <div style="width: 80%" class="container">
+                <mat-form-field>
+                    <input matInput placeholder="Id" formControlName='id'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Project Name" formControlName='pname'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Type" formControlName='type'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Objects" formControlName='objects'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Images" formControlName='images'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Completion" formControlName='completion'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Billing" formControlName='billing'>
+                </mat-form-field>
+            </div>
+
+            <button mat-flat-button color="primary" [disabled]="form.invalid" type="submit" (click)="post()">Add project entry</button>
+        </mat-card>
+    </div>
+</form>
