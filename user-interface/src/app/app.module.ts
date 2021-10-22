@@ -25,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AllProjectEntriesComponent } from './components/all-project-entries/all-project-entries.component';
 import { CreateProjectEntryComponent } from './components/create-project-entry/create-project-entry.component';
 import { DisplaySingleProjectComponent } from './components/display-single-project/display-single-project.component';
+import { ClientDisplayComponent } from './components/client-display/client-display.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DisplaySingleProjectComponent } from './components/display-single-proje
     AllProjectEntriesComponent,
     CreateProjectEntryComponent,
     DisplaySingleProjectComponent,
+    ClientDisplayComponent,
   ],
   imports: [
     BrowserModule,
