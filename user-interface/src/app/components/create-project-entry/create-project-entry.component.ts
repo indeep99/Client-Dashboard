@@ -25,6 +25,7 @@ export class CreateProjectEntryComponent implements OnInit {
       images: [null, [Validators.required]],
       completion: [null, [Validators.required]],
       billing: [null, [Validators.required]],
+      client: [null, [Validators.required]]
     })
   }
 

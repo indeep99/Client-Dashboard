@@ -15,9 +15,11 @@ export class ProjectService {
         @InjectRepository(ProjectEntryEntity) private readonly projectRepository: Repository<ProjectEntryEntity>,
         private userService: UserService
     ) {}
-
-    create(user: User, projectEntry: ProjectEntry): Observable<ProjectEntry> {
-        projectEntry.client = user;
+    
+    // user: User,
+    create(projectEntry: ProjectEntry): Observable<ProjectEntry> {
+        // projectEntry.client = user;
+        // projectEntry.client.id = 
         return from(this.projectRepository.save(projectEntry));
     }
 

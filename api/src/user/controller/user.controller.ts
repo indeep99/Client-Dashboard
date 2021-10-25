@@ -45,8 +45,8 @@ export class UserController {
     return this.userService.findOne(params.id);
   }
 
-  // @hasRoles(UserRole.ADMIN)
-  // @UseGuards(JwtAuthGuard, RolesGuard)
+  @hasRoles(UserRole.ADMIN)
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   index(
     @Query('page') page: number = 1,
