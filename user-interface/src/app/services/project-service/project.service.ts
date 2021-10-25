@@ -39,7 +39,6 @@ export class ProjectService {
   }
 
   post(projectEntry: ProjectEntry): Observable<ProjectEntry> {
-    console.log('in')
     return this.http.post<ProjectEntry>('/api/project/', projectEntry);
   }
 
