@@ -26,6 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
+    canActivate:  [AuthGuard],
     children: [
       {
         path: '',
