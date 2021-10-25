@@ -16,8 +16,9 @@ export class ProjectService {
         private userService: UserService
     ) {}
 
-    create(user: User, projectEntry: ProjectEntry): Observable<ProjectEntry> {
-        projectEntry.client = user;
+    // user: User, 
+    create(projectEntry: ProjectEntry): Observable<ProjectEntry> {
+        // projectEntry.client = user;
         return from(this.projectRepository.save(projectEntry));
     }
 
